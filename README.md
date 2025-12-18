@@ -118,21 +118,21 @@ Bộ dữ liệu chứa thông tin chi tiết về các bài hát trên nền t�
 - **Mô hình tốt nhất:** XGBoost và Random Forest đạt R² ≈ 0.63
 - **Ý nghĩa:** Chỉ giải thích được ~63% sự biến thiên về độ phổ biến
 - **Giới hạn:** ~37% còn lại phụ thuộc vào yếu tố ngoại sinh (Marketing, viral trends, thời điểm phát hành)
-- **Yếu tố quan trọng nhất:** Nghệ sĩ và thể loại > Đặc trưng âm thanh
+- **Yếu tố quan trọng nhất:** Nghệ sĩ ảnh hưởng lớn nhất đến độ phổ biến của bài hát
 
-4. Major vs Minor
+### 3. Major vs Minor
 
 - **Về Valence:** Giọng Trưởng (Major) mang cảm giác tích cực hơn giọng Thứ (Minor), nhưng chênh lệch rất nhỏ
 - **Về Energy:** Ngược với lý thuyết truyền thống, nhạc giọng Thứ có năng lượng trung bình cao hơn giọng Trưởng
 - Phản ánh sự trỗi dậy của các dòng nhạc điện tử (EDM, Techno) sử dụng giọng Thứ
 
-### 5. Explicit vs Non-Explicit
+### 4. Explicit vs Non-Explicit
 
 - **Định hình phong cách:** Nhạc explicit có cấu trúc âm thanh đặc trưng: ồn ào hơn và nhiều lời hơn
 - **Khả năng tương tác:** Nhạc explicit có danceability cao hơn đáng kể, rất phù hợp cho hoạt động vận động
 - **Bác bỏ định kiến:** Nhạc explicit không hề "khó nhảy" như suy nghĩ ban đầu
 
-### 6. Nghịch lý Danceability
+### 5. Nghịch lý Danceability
 
 - Mode Thứ (Minor) có Danceability cao hơn Mode Trưởng (Major)
 - Nguyên nhân: Nhạc Minor có Energy trung bình cao hơn
@@ -140,7 +140,7 @@ Bộ dữ liệu chứa thông tin chi tiết về các bài hát trên nền t�
 - **Định hình phong cách:** Nhạc explicit có cấu trúc âm thanh đặc trưng: ồn ào hơn và nhiều lời hơn
 - **Khả năng tương tác:** Nhạc explicit có danceability cao hơn đáng kể, rất phù hợp cho hoạt động vận động
 
-### 5. Giới hạn của mô hình dự đoán
+### 6. Giới hạn của mô hình dự đoán
 
 - Mô hình tốt nhất (XGBoost/Random Forest) chỉ giải thích được ~63% (R² ≈ 0.63) sự biến thiên về độ phổ biến
 - ~40% còn lại phụ thuộc vào các yếu tố ngoại sinh: Marketing, xu hướng mạng xã hội, thời điểm phát hành
@@ -153,19 +153,18 @@ Bộ dữ liệu chứa thông tin chi tiết về các bài hát trên nền t�
 Spotify_final_project/
 │
 ├── data/
-│   ├── raw/
-│   │   └── spotify_dataset.csv          # Dữ liệu gốc từ Hugging Face
-│   └── processed/                        # Dữ liệu đã xử lý
+│   ├── spotify_dataset.csv             # Dữ liệu gốc từ Hugging Face
 │
 ├── notebooks/
-│   ├── 01_data_exploration.ipynb        # Khám phá và làm sạch dữ liệu
-│   ├── 02_data_analysis.ipynb           # Phân tích câu hỏi 1 & 2
-│   ├── 03_data_analysis.ipynb           # Phân tích câu hỏi 3 & 4
-│   ├── 04_data_analysis.ipynb           # Phân tích câu hỏi 4 & 6
-│   └── 05_project_summary.ipynb         # Tóm tắt dự án và cảm nhận
+│   ├── 01_data_exploration.ipynb       # Khám phá và làm sạch dữ liệu
+│   ├── 02_data_analysis.ipynb          # Phân tích câu hỏi 1 & 2
+│   ├── 03_data_analysis.ipynb          # Phân tích câu hỏi 3 & 4
+│   ├── 04_data_analysis.ipynb          # Phân tích câu hỏi 4 & 6
+│   └── 05_project_summary.ipynb        # Tóm tắt dự án và cảm nhận
 │
 ├── README.md
-└── GIT_WORKFLOW.md                       # Hướng dẫn quy trình Git
+├── requirements.txt                    # Các thư viện Python cần thiết
+└── GIT_WORKFLOW.md                     # Hướng dẫn quy trình Git
 ```
 
 ### Mô tả các notebook
@@ -181,7 +180,7 @@ Spotify_final_project/
 - Phân tích tương quan giữa các biến
 - Làm sạch và chuẩn bị dữ liệu
 
-**Kỹ thuật chính:** EDA (Exploratory Data Analysis), Data Cleaning, Visualization
+**Kỹ thuật chính:** EDA (Exploratory Data Analysis), Visualization
 
 ---
 
@@ -222,7 +221,8 @@ Spotify_final_project/
 
 - Phân tích đặc điểm âm thanh khác biệt (Loudness, Speechiness, Danceability)
 - Kiểm định T-test cho các đặc trưng
-- So sánh phân phối và bác bỏ định kiến
+- Trực quan hóa bằng Boxplot và KDE plot
+- Phân tích ý nghĩa thống kê (P-value)
 
 **Kỹ thuật chính:** Statistical Testing (T-test), Group Comparison, Hypothesis Testing
 
@@ -273,7 +273,7 @@ Spotify_final_project/
 ### Bước 2: Clone repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/KhaiPhong25/Spotify_final_project.git
 cd Spotify_final_project
 ```
 
@@ -295,7 +295,7 @@ pip install jupyter notebook
 ### Bước 4: Tải dataset
 
 - Tải từ [Hugging Face](https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset)
-- Đặt file `spotify_dataset.csv` vào thư mục `data/raw/`
+- Đặt file `spotify_dataset.csv` vào thư mục `data`
 
 ### Bước 5: Chạy các notebook
 
