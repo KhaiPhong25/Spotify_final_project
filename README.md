@@ -307,9 +307,9 @@ jupyter notebook
 
 **Thứ tự chạy được khuyến nghị:**
 
-1. `01_data_exploration.ipynb` - Hiểu dữ liệu và làm sạch
+1. `01_data_exploration.ipynb` - Tìm hiểu dữ liệu
 2. `02_data_analysis.ipynb` - Phân tích câu hỏi 1 & 2
-3. `03_data_analysis.ipynb` - Phân tích câu hỏi 3 $ 4
+3. `03_data_analysis.ipynb` - Phân tích câu hỏi 3 & 4
 4. `04_data_analysis.ipynb` - Phân tích câu hỏi 5 & 6
 5. `05_project_summary.ipynb` - Tổng kết
 
